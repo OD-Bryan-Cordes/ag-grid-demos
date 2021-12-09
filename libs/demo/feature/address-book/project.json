@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/demo/feature/address-book",
+  "sourceRoot": "libs/demo/feature/address-book/src",
+  "prefix": "app",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/demo/feature/address-book"],
+      "options": {
+        "jestConfig": "libs/demo/feature/address-book/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/demo/feature/address-book/src/**/*.ts",
+          "libs/demo/feature/address-book/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

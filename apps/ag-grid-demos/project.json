@@ -1,0 +1,101 @@
+{
+  "projectType": "application",
+  "root": "apps/ag-grid-demos",
+  "sourceRoot": "apps/ag-grid-demos/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/ag-grid-demos",
+        "index": "apps/ag-grid-demos/src/index.html",
+        "main": "apps/ag-grid-demos/src/main.ts",
+        "polyfills": "apps/ag-grid-demos/src/polyfills.ts",
+        "tsConfig": "apps/ag-grid-demos/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/ag-grid-demos/src/favicon.ico",
+          "apps/ag-grid-demos/src/assets"
+        ],
+        "styles": [
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+          "apps/ag-grid-demos/src/styles.scss"
+        ],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "10mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/ag-grid-demos/src/environments/environment.ts",
+              "with": "apps/ag-grid-demos/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "ag-grid-demos:build:production"
+        },
+        "development": {
+          "browserTarget": "ag-grid-demos:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "ag-grid-demos:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/ag-grid-demos/src/**/*.ts",
+          "apps/ag-grid-demos/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/ag-grid-demos"
+      ],
+      "options": {
+        "jestConfig": "apps/ag-grid-demos/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

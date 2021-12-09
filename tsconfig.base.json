@@ -1,0 +1,42 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2020",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@ag-grid-bryan/demo/feature/address-book": [
+        "libs/demo/feature/address-book/src/index.ts"
+      ],
+      "@ag-grid-bryan/demo/feature/compare": [
+        "libs/demo/feature/compare/src/index.ts"
+      ],
+      "@ag-grid-bryan/demo/feature/form": [
+        "libs/demo/feature/form/src/index.ts"
+      ],
+      "@ag-grid-bryan/demo/feature/profiles": [
+        "libs/demo/feature/profiles/src/index.ts"
+      ],
+      "@ag-grid-bryan/demo/ui/form": ["libs/demo/ui/form/src/index.ts"],
+      "@ag-grid-bryan/shared/ui/material": [
+        "libs/shared/ui/material/src/index.ts"
+      ],
+      "@ag-grid-bryan/shared/ui/components": [
+        "libs/shared/ui/components/src/index.ts"
+      ],
+      "@ag-grid-bryan/shared/ui/grid": ["libs/shared/ui/grid/src/index.ts"],
+      "@app/demo/data-access": ["libs/demo/data-access/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

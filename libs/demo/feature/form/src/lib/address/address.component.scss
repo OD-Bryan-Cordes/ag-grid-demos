@@ -1,0 +1,36 @@
+main {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0 20px;
+}
+mat-expansion-panel {
+  mat-expansion-panel-header {
+    padding: 0 var(--spacing-md);
+    background-color: lavender;
+  }
+
+  mat-panel-title {
+    gap: var(--spacing-sm);
+  }
+
+  mat-panel-description {
+    justify-content: flex-end;
+
+    .mat-raised-button {
+      min-width: 35px;
+      padding: 0;
+      margin-left: var(--spacing-sm);
+    }
+  }
+
+  mat-panel-title,
+  mat-panel-description {
+    z-index: 1000;
+    align-items: center;
+  }
+  main {
+    padding: 10px;
+  }
+}

@@ -1,0 +1,10 @@
+<button
+  type="button"
+  mat-button
+  color="primary"
+  class="mat-mini-fab"
+  *ngFor="let button of icons | keyvalue"
+  (click)="button.value(node)"
+>
+  <mat-icon>{{ button.key }}</mat-icon>
+</button>

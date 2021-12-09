@@ -1,0 +1,9 @@
+<h2>Address List</h2>
+<app-custom-grid
+  [gridOptions]="gridOptions"
+  [rowData]="addresses"
+></app-custom-grid>
+<app-people-list
+  *ngIf="selectedAddress"
+  [people]="selectedAddress.people"
+></app-people-list>

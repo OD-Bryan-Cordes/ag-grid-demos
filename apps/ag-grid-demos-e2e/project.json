@@ -1,0 +1,34 @@
+{
+  "root": "apps/ag-grid-demos-e2e",
+  "sourceRoot": "apps/ag-grid-demos-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/ag-grid-demos-e2e/cypress.json",
+        "devServerTarget": "ag-grid-demos:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "ag-grid-demos:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "apps/ag-grid-demos-e2e/**/*.{js,ts}"
+        ]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": [
+    "ag-grid-demos"
+  ]
+}

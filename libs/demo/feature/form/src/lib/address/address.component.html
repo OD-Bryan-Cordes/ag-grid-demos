@@ -1,0 +1,94 @@
+<mat-expansion-panel cdkDrag [formGroup]="formGroup.control" [expanded]="true">
+  <mat-expansion-panel-header
+    cdkDragHandle
+    collapsedHeight="40px"
+    expandedHeight="40px"
+  >
+    <mat-panel-title> Address - {{ type }} </mat-panel-title>
+    <mat-panel-description>
+      <button
+        mat-raised-button
+        color="primary"
+        matTooltip="Delete"
+        type="button"
+        [matMenuTriggerFor]="deleteMenu"
+        (click)="$event.stopPropagation()"
+      >
+        <!-- $event.stopPropagation stops the expansion panel from being toggled -->
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      <mat-menu #deleteMenu="matMenu" class="mat-inline-confirm">
+        <span>Are you sure you want to delete this Address?</span>
+        <div class="button-container">
+          <button
+            type="button"
+            mat-raised-button
+            color="warn"
+            (click)="onDelete(index)"
+          >
+            Yes, delete
+          </button>
+          <button mat-raised-button>Cancel</button>
+        </div>
+      </mat-menu>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+
+  <main>
+    <mat-form-field>
+      <mat-label>Line 1</mat-label>
+      <input
+        name="address-line1"
+        id="address-line1"
+        matInput
+        formControlName="line1"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Line 2</mat-label>
+      <input
+        name="address-line2"
+        id="address-line2"
+        matInput
+        formControlName="line2"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input
+        name="address-level2"
+        id="address-level2"
+        matInput
+        formControlName="city"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>State</mat-label>
+      <input
+        name="address-level1"
+        id="address-level1"
+        matInput
+        formControlName="state"
+      />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>ZIP</mat-label>
+      <input
+        name="postal-code"
+        id="postal-code"
+        matInput
+        formControlName="zip"
+      />
+    </mat-form-field>
+  </main>
+
+  <ng-container [ngSwitch]="type">
+    <app-home-address *ngSwitchCase="AddressType.HOME"></app-home-address>
+    <app-office-address *ngSwitchCase="AddressType.OFFICE"></app-office-address>
+  </ng-container>
+</mat-expansion-panel>

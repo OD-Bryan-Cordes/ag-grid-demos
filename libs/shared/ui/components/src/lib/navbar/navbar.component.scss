@@ -1,0 +1,12 @@
+:host {
+  display: contents;
+}
+
+mat-toolbar {
+  min-height: 60px;
+  padding-inline: var(--inner-padding);
+}
+
+span.spacer {
+  margin-inline: auto;
+}

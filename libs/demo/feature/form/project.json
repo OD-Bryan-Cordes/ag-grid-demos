@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/demo/feature/form",
+  "sourceRoot": "libs/demo/feature/form/src",
+  "prefix": "app",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/demo/feature/form"],
+      "options": {
+        "jestConfig": "libs/demo/feature/form/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/demo/feature/form/src/**/*.ts",
+          "libs/demo/feature/form/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

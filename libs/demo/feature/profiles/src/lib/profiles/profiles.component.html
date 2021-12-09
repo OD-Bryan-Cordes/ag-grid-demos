@@ -1,0 +1,9 @@
+<h1>Profiles</h1>
+<app-custom-grid
+  [gridOptions]="gridOptions"
+  [rowData]="people$ | async"
+></app-custom-grid>
+<app-address-list
+  *ngIf="selectedPerson"
+  [addresses]="selectedPerson.addresses"
+></app-address-list>

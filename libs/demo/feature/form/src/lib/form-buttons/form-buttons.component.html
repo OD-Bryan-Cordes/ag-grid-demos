@@ -1,0 +1,3 @@
+<button mat-raised-button [disabled]="!form.valid" type="submit" color="primary">Submit</button>
+<button mat-raised-button [disabled]="!form.dirty" color="accent" type="reset">Reset</button>
+<button mat-raised-button (click)="onCancel()"color="warn" type="reset">Clear</button>

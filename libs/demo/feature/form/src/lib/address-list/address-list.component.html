@@ -1,0 +1,26 @@
+<header>
+  <h2>Addresses</h2>
+
+  <mat-form-field floatLabel="never">
+    <mat-label>New Address</mat-label>
+    <mat-select>
+      <mat-option (click)="newHomeAddress()">Home</mat-option>
+      <mat-option (click)="newOfficeAddress()">Office</mat-option>
+    </mat-select>
+  </mat-form-field>
+</header>
+
+<ng-container [formGroup]="formGroup">
+  <mat-accordion
+    class="operations-block-list"
+    cdkDropList
+    [multi]="true"
+    [formArrayName]="name"
+  >
+    <app-address
+      *ngFor="let address of addresses.controls; index as i"
+      [formGroupName]="i"
+    >
+    </app-address>
+  </mat-accordion>
+</ng-container>

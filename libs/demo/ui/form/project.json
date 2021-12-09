@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/demo/ui/form",
+  "sourceRoot": "libs/demo/ui/form/src",
+  "prefix": "app",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/demo/ui/form"],
+      "options": {
+        "jestConfig": "libs/demo/ui/form/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/demo/ui/form/src/**/*.ts",
+          "libs/demo/ui/form/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

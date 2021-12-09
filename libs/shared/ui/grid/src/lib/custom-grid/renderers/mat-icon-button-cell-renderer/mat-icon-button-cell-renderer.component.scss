@@ -1,0 +1,12 @@
+button.mat-mini-fab {
+  --grid-cell-button-size: 24px;
+  border-radius: 6px;
+  width: var(--grid-cell-button-size);
+  height: var(--grid-cell-button-size);
+  line-height: var(--grid-cell-button-size);
+  padding: 0;
+}
+
+button + button {
+  margin-left: var(--spacing-xs);
+}
