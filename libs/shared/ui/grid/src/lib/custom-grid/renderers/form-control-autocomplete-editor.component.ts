@@ -1,8 +1,9 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
-import { map, Observable, startWith, withLatestFrom } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map, startWith, withLatestFrom } from 'rxjs/operators';
 
-type NamedModel = { id: number, name: string };
+type NamedModel = { id: number; name: string };
 
 import { FormControlSelectEditorParams } from '../types/cell-params';
 import { Choice } from '../types/grid-options';
@@ -47,7 +48,9 @@ export class FormControlAutocompleteEditorComponent
     this.filteredChoices = this.control.valueChanges.pipe(
       startWith(''),
       withLatestFrom(this.choices$),
-      map(([value, choices]) => choices.filter((choice) => this._compare(choice, value))),
+      map(([value, choices]) =>
+        choices.filter((choice) => this._compare(choice, value))
+      )
     );
   }
 
@@ -56,10 +59,14 @@ export class FormControlAutocompleteEditorComponent
   }
 
   ngAfterViewInit() {
-    setTimeout(() => this.trigger?.openPanel() || this.input?.nativeElement.focus());
+    setTimeout(
+      () => this.trigger?.openPanel() || this.input?.nativeElement.focus()
+    );
   }
 
   private _compare(choice: Choice, input: NamedModel | string) {
-    return String(choice.value).toLowerCase().includes(String(input).toLowerCase());
+    return String(choice.value)
+      .toLowerCase()
+      .includes(String(input).toLowerCase());
   }
 }

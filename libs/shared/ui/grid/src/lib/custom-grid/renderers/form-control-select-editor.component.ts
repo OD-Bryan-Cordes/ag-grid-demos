@@ -3,7 +3,8 @@ import { GridApi } from '@ag-grid-community/core';
 import { Component, ViewChild } from '@angular/core';
 import { FormArray, FormControl } from '@angular/forms';
 import { MatSelect } from '@angular/material/select';
-import { Observable, map, of, tap } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { map, tap} from 'rxjs/operators';
 
 import { FormControlSelectEditorParams } from '../types/cell-params';
 import { Choice, ChoiceInputs, isChoice } from '../types/grid-options';

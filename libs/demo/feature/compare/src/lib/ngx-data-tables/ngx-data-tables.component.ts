@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { TableColumn } from '@swimlane/ngx-datatable';
-import { Observable, of, map } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { range } from '../helpers';
 
 @Component({

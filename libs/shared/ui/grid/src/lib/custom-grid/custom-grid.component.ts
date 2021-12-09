@@ -2,12 +2,12 @@ import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-mod
 import { ColDef, GridOptions, Module } from '@ag-grid-community/core';
 import { Component, Input, OnInit, Optional } from '@angular/core';
 import { FormArrayName } from '@angular/forms';
-import _merge from 'lodash-es/merge';
-import { distinctUntilKeyChanged, Observable, startWith } from 'rxjs';
+import { Observable } from 'rxjs';
+import { distinctUntilKeyChanged, startWith } from 'rxjs/operators';
 
 import { customFrameworkComponents } from './types/renderers';
 import { invalidRowCellClassFn } from './utils/form-utils';
-import * as colTypes from "./types/column-types";
+import * as colTypes from './types/column-types';
 
 @Component({
   selector: 'app-custom-grid',
@@ -42,7 +42,7 @@ export class CustomGridComponent implements OnInit {
 
   @Input() set gridOptions(gridOptions: GridOptions) {
     // This allows default grid options and then custom grid options from individual usage
-    this._gridOptions = _merge(this.defaultGridOptions, gridOptions);
+    this._gridOptions = { ...this.defaultGridOptions, ...gridOptions };
 
     // Set server-side params.
     if (gridOptions.serverSideDatasource) {
@@ -63,7 +63,7 @@ export class CustomGridComponent implements OnInit {
     if (this.formArray) {
       this.formValue = this.formArray.control.valueChanges.pipe(
         startWith(this.formArray.value),
-        distinctUntilKeyChanged('length'),
+        distinctUntilKeyChanged('length')
       );
     }
   }

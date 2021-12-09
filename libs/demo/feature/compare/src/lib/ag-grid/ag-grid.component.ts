@@ -2,11 +2,11 @@ import {
   ColDef,
   GridApi,
   GridOptions,
-  RowClassParams,
 } from '@ag-grid-community/core';
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Observable, of, map, tap } from 'rxjs';
+import { Observable, of} from 'rxjs';
+import { map } from 'rxjs/operators';
 import { range } from '../helpers';
 
 @Component({
